@@ -20,53 +20,35 @@ func ToString(value interface{}) (toValue string) {
 	// Find the corresponding value type
 	switch value.(type) {
 	case float32:
-		ft := value.(float32)
-		toValue = strconv.FormatFloat(float64(ft), 'f', -1, 64)
+		toValue = strconv.FormatFloat(float64(value.(float32)), 'f', -1, 64)
 	case float64:
-		ft := value.(float64)
-		toValue = strconv.FormatFloat(ft, 'f', -1, 64)
+		toValue = strconv.FormatFloat(value.(float64), 'f', -1, 64)
 	case int:
-		it := value.(int)
-		toValue = strconv.Itoa(it)
+		toValue = strconv.Itoa(value.(int))
 	case uint:
-		it := value.(uint)
-		toValue = strconv.Itoa(int(it))
+		toValue = strconv.Itoa(int(value.(uint)))
 	case int8:
-		it := value.(int8)
-		toValue = strconv.Itoa(int(it))
+		toValue = strconv.Itoa(int(value.(int8)))
 	case uint8:
-		it := value.(uint8)
-		toValue = strconv.Itoa(int(it))
+		toValue = strconv.Itoa(int(value.(uint8)))
 	case int16:
-		it := value.(int16)
-		toValue = strconv.Itoa(int(it))
+		toValue = strconv.Itoa(int(value.(int16)))
 	case uint16:
-		it := value.(uint16)
-		toValue = strconv.Itoa(int(it))
+		toValue = strconv.Itoa(int(value.(uint16)))
 	case int32:
-		it := value.(int32)
-		toValue = strconv.Itoa(int(it))
+		toValue = strconv.Itoa(int(value.(int32)))
 	case uint32:
-		it := value.(uint32)
-		toValue = strconv.Itoa(int(it))
+		toValue = strconv.Itoa(int(value.(uint32)))
 	case int64:
-		it := value.(int64)
-		toValue = strconv.FormatInt(it, 10)
+		toValue = strconv.FormatInt(value.(int64), 10)
 	case uint64:
-		it := value.(uint64)
-		toValue = strconv.FormatUint(it, 10)
+		toValue = strconv.FormatUint(value.(uint64), 10)
 	case string:
 		toValue = value.(string)
 	case []byte:
 		toValue = string(value.([]byte))
 	case bool:
-		key_bool := value.(bool)
-		if key_bool {
-			toValue = "true"
-		} else {
-			toValue = "false"
-		}
-	default:
+		toValue = strconv.FormatBool(value.(bool))
 	}
 	return
 }
